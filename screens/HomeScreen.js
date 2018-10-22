@@ -5,6 +5,8 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  TextInput,
+  Button,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -21,45 +23,73 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
+          
+          <View style={styles.getStartedContainer}>
+            <Text style={styles.getStartedText}>Location</Text>
+            <TextInput
+              style={{height: 40, width: 200, padding: 5, borderColor: 'gray', borderWidth: 1}}
+            />
+          </View>
+    
+          <View style={styles.getStartedContainer}>
+            <Text style={styles.getStartedText}>Square Feet</Text>
+            <TextInput
+              style={{height: 40, width: 200, padding: 5, borderColor: 'gray', borderWidth: 1}}
             />
           </View>
 
           <View style={styles.getStartedContainer}>
-            {this._maybeRenderDevelopmentModeWarning()}
-
-            <Text style={styles.getStartedText}>Get started by opening</Text>
-
-            <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-              <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
-            </View>
-
-            <Text style={styles.getStartedText}>
-              Change this text and your app will automatically reload.
-            </Text>
+            <Text style={styles.getStartedText}>Materials</Text>
+            <TextInput
+              style={{height: 40, width: 200, padding: 5, borderColor: 'gray', borderWidth: 1}}
+            />
           </View>
 
-          <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
-            </TouchableOpacity>
+          <View style={styles.getStartedContainer}>
+            <Text style={styles.getStartedText}>Number of Days</Text>
+            <TextInput
+              style={{height: 40, width: 200, padding: 5, borderColor: 'gray', borderWidth: 1}}
+            />
           </View>
+
+          <View style={styles.getStartedContainer}>
+            <Text style={styles.getStartedText}>Hours worked per day</Text>
+            <TextInput
+              style={{height: 40, width: 200, padding: 5, borderColor: 'gray', borderWidth: 1}}
+            />
+          </View>
+    
+          <View style={styles.getStartedContainer}>
+            <Text style={styles.getStartedText}>Dollors per hour</Text>
+            <TextInput
+              style={{height: 40, width: 200, padding: 5, borderColor: 'gray', borderWidth: 1}}
+            />
+          </View>
+
+          <View style={styles.getStartedContainer}>
+            <Text style={styles.getStartedText}>Number of hotel rooms</Text>
+            <TextInput
+              style={{height: 40, width: 200, padding: 5, borderColor: 'gray', borderWidth: 1}}
+            />
+          </View>
+
+          <View style={styles.getStartedContainer}>
+            <Text style={styles.getStartedText}>Dollors per night</Text>
+            <TextInput
+              style={{height: 40, width: 200, padding: 5, borderColor: 'gray', borderWidth: 1}}
+            />
+          </View>
+    
+        <View>
+        <Button
+            onPress={this._SubmitForm}
+            title="Submit"
+            color="#841584"
+            accessibilityLabel="Learn more about this purple button"
+          />
+        </View>
         </ScrollView>
 
-        <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-
-          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-            <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
-          </View>
-        </View>
       </View>
     );
   }
@@ -91,10 +121,8 @@ export default class HomeScreen extends React.Component {
     WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
   };
 
-  _handleHelpPress = () => {
-    WebBrowser.openBrowserAsync(
-      'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-    );
+  _SubmitForm = () => {
+    
   };
 }
 
@@ -128,6 +156,7 @@ const styles = StyleSheet.create({
   getStartedContainer: {
     alignItems: 'center',
     marginHorizontal: 50,
+    marginTop: 30
   },
   homeScreenFilename: {
     marginVertical: 7,
@@ -141,10 +170,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
   },
   getStartedText: {
-    fontSize: 17,
+    fontSize: 19,
     color: 'rgba(96,100,109, 1)',
     lineHeight: 24,
-    textAlign: 'center',
+    textAlign: 'left',
   },
   tabBarInfoContainer: {
     position: 'absolute',
